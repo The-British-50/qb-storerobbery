@@ -87,7 +87,7 @@ CreateThread(function()
                                         if street2 ~= nil then
                                             streetLabel = streetLabel .. " " .. street2
                                         end
-                                        TriggerServerEvent("qb-storerobbery:server:callCops", "safe", currentSafe, streetLabel, pos)
+                                        local cameraId = Config.Safes[currentSafe].camId exports['ps-dispatch']:StoreRobbery(cameraId)
                                         copsCalled = true
                                     end
                                 else
