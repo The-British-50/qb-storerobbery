@@ -48,8 +48,8 @@ RegisterNetEvent('qb-storerobbery:server:takeMoney', function(register, isDone)
         local info = {
             worth = math.random(cashA, cashB)
         }
-        Player.Functions.AddItem('markedbills', bags, false, info)
-        TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['markedbills'], "add")
+        Player.Functions.AddItem('blackmoney', bags, false, info)
+        TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['blackmoney'], "add")
         if math.random(1, 100) <= 10 then
             local code = SafeCodes[Config.Registers[register].safeKey]
             if Config.Safes[Config.Registers[register].safeKey].type == "keypad" then
@@ -98,8 +98,8 @@ RegisterNetEvent('qb-storerobbery:server:SafeReward', function(safe)
 	local info = {
 		worth = math.random(cashA, cashB)
 	}
-	Player.Functions.AddItem('markedbills', bags, false, info)
-	TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['markedbills'], "add")
+	Player.Functions.AddItem('blackmoney', bags, false, info)
+	TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['blackmoney'], "add")
 
     local luck = math.random(1, 100)
     local odd = math.random(1, 100)
