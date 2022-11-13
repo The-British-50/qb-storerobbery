@@ -87,9 +87,7 @@ CreateThread(function()
                                         if street2 ~= nil then
                                             streetLabel = streetLabel .. " " .. street2
                                         end
-                                        local cameraId = Config.Safes[currentSafe].camId exports['ps-dispatch']:StoreRobbery(cameraId)
-                                        copsCalled = true
-                                    end
+                                        TriggerServerEvent("qb-storerobbery:server:callCops", "safe", currentSafe, streetLabel, pos)                                    end
                                 else
                                     QBCore.Functions.Notify(Lang:t("error.minimum_store_robbery_police", { MinimumStoreRobberyPolice = Config.MinimumStoreRobberyPolice}), "error")
                                 end
@@ -148,8 +146,7 @@ RegisterNetEvent('lockpicks:UseLockpick', function(isAdvanced)
                         if street2 ~= nil then
                             streetLabel = streetLabel .. " " .. street2
                         end
-                        local cameraId = Config.Registers[currentRegister].camId exports['ps-dispatch']:StoreRobbery(cameraId)
-                        copsCalled = true
+                        TriggerServerEvent("qb-storerobbery:server:callCops", "cashier", currentRegister, streetLabel, pos)                        copsCalled = true
                     end
                 else
                     lockpick(true)
@@ -165,8 +162,7 @@ RegisterNetEvent('lockpicks:UseLockpick', function(isAdvanced)
                         if street2 ~= nil then
                             streetLabel = streetLabel .. " " .. street2
                         end
-                        local cameraId = Config.Registers[currentRegister].camId exports['ps-dispatch']:StoreRobbery(cameraId)
-                        copsCalled = true
+                        TriggerServerEvent("qb-storerobbery:server:callCops", "cashier", currentRegister, streetLabel, pos)                        copsCalled = true
                     end
 
                 end
