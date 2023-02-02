@@ -44,12 +44,12 @@ RegisterNetEvent('qb-storerobbery:server:takeMoney', function(register, isDone)
     -- Add any additional code you want above this comment to do whilst robbing a register, everything above the if statement under this will be triggered every 2 seconds when a register is getting robbed.
 
     if isDone then
-        local bags = math.random(100,350)
+        local bags = math.random(1,3)
         local info = {
             worth = math.random(cashA, cashB)
         }
-        Player.Functions.AddItem('blackmoney', bags, false, info)
-        TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['blackmoney'], "add")
+        Player.Functions.AddItem('markedbills', bags, false, info)
+        TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['markedbills'], "add")
         if math.random(1, 100) <= 10 then
             local code = SafeCodes[Config.Registers[register].safeKey]
             if Config.Safes[Config.Registers[register].safeKey].type == "keypad" then
@@ -94,12 +94,12 @@ RegisterNetEvent('qb-storerobbery:server:SafeReward', function(safe)
         return DropPlayer(src, "Attempted exploit abuse")
     end
 
-	local bags = math.random(1000,3500)
+	local bags = math.random(1,3)
 	local info = {
 		worth = math.random(cashA, cashB)
 	}
-	Player.Functions.AddItem('blackmoney', bags, false, info)
-	TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['blackmoney'], "add")
+	Player.Functions.AddItem('markedbills', bags, false, info)
+	TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['markedbills'], "add")
 
     local luck = math.random(1, 100)
     local odd = math.random(1, 100)
