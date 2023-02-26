@@ -53,6 +53,7 @@ RegisterNetEvent('qb-storerobbery:server:takeMoney', function(register, isDone)
         TriggerClientEvent('ak4y-battlepass:addtaskcount:standart', source, 3, 1)
         if math.random(1, 10) <= 8 then
             TriggerClientEvent('inventory:client:itemBox', src, QBCore.Shared.Items["pokemonboosterpack"], "add")
+        TriggerClientEvent('ak4y-battlepass:addtaskcount:standart', source, 3, 1)
         if math.random(1, 100) <= 10 then
             local code = SafeCodes[Config.Registers[register].safeKey]
             if Config.Safes[Config.Registers[register].safeKey].type == "keypad" then
