@@ -256,6 +256,12 @@ RegisterNUICallback('success', function(_, cb)
         lockpick(false)
         TriggerServerEvent('qb-storerobbery:server:setRegisterStatus', currentRegister)
         local lockpickTime = 25000
+-- Added this if statement below for creating evidence drops
+        if math.random(1, 100) <= 25 then
+            local pos = GetEntityCoords(PlayerPedId())
+            TriggerServerEvent("evidence:server:CreateLockTampering", pos)
+        end
+
         LockpickDoorAnim(lockpickTime)
         QBCore.Functions.Progressbar("search_register", Lang:t("text.emptying_the_register"), lockpickTime, false, true, {
             disableMovement = true,
