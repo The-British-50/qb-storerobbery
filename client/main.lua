@@ -379,6 +379,9 @@ RegisterNUICallback('fail', function(_ ,cb)
         TriggerServerEvent("evidence:server:CreateFingerDrop", pos)
         QBCore.Functions.Notify(Lang:t("error.you_broke_the_lock_pick"))
     end
+
+    TriggerServerEvent("evidence:server:CreateLockTampering", pos)
+
     lockpick(false)
     cb('ok')
 end)
